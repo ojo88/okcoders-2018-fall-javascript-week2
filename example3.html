@@ -4,15 +4,37 @@
             My JavaScript Website
         </title>
     </head>
+    <body>
+        <h2 id="pageTitle">This is My Title</h2>
+        <ul id="msg">
+            <li>This is my message</li>
+        </ul>
         <input type="text" id="one"/>
         <input type="text" id="two"/>
-        <button onclick="myMessage()" id="doSomething">Click Me</button>
-
+        <button onclick="myMessage()" id="doSomething">Click Me!</button>
+    </body>
     <script>
+        var color = "orange"
         function myMessage() {
-            var message = "This is a message"
-            console.log(message);
-            alert(message);
+            var one = document.getElementById("one");
+            var msg = document.getElementById("msg");
+   
+            var newListItem = one.value;
+            one.value = "";
+
+            console.log(newListItem);
+
+            var curList = msg.innerHTML;
+            msg.innerHTML = curList + '<li style = "background:' + color +'">' + newListItem + "</li>";
+
+            if(color == "orange"){
+                color = "crimson";
+            }
+            else {
+                color = "orange";
+            }
+            // msg.style ="background: " + color;
+            one.focus();
         }
     </script>
 </html>
